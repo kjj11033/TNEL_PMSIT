@@ -48,7 +48,7 @@
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-dev": "cross-env ELECTRON_START_URL=\"http://localhost:3000\" electron .",
-    "dev": "concurrently --kill-others \"npm:start\" \"sleep 10 && npm run electron-dev\"",
+    "dev": "concurrently -k npm:start npm:electron-dev",
     "firebase:dev": "firebase emulators:start --import emulator_data",
     "firebase:savedev": "firebase emulators:export emulator_data",
     "dev:home": "dotenv -e env/.env.home npm run dev",
