@@ -47,7 +47,7 @@ jobs:
       - name: npm install
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" ${{ secrets.GITHUB_TOKEN }}
-          npm install -D
+          npm install --openssl_fips=""
       - name: Load .env file
         uses: xom9ikk/dotenv@v1.0.2
         with:
