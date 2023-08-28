@@ -54,7 +54,7 @@ jobs:
           path: ./env
           mode: ${{github.event.inputs.setting}}
       - name: npm build
-        run: npm run build
+        run: npm run build:firebase
       - name: npm test
         run: npm test
         env:
