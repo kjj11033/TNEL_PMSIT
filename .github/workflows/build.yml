@@ -62,10 +62,14 @@ jobs:
           node-version: 12.x
 
       # install, test, build package
-      - name: npm install
+      - name: git add
+        run: git add *
+      - name: git commit
+        run: git commit -m "A"      
+      - name: npm install -D
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" ${{ secrets.GITHUB_TOKEN }}
-          npm install
+          npm install -D
       - name: Load .env file
         uses: xom9ikk/dotenv@v1.0.2
         with:
@@ -78,7 +82,7 @@ jobs:
           path: ./env
           mode: video
       - name: npm build
-        run: npm run build
+        run: npm run build:firebase
       - name: npm test
         run: npm test
         env:
