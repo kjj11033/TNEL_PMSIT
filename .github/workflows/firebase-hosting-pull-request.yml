@@ -8,16 +8,10 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      # Rewrite "git:" repo urls to use "https:" instead, since GitHub Actions blocks port 9418 (as of Jan 2022).
-      - name: Rewrite "git:" repo urls to use "https:" instead.
-        run: git config --global url."https://github.com/".insteadOf "git://github.com/"
-      - uses: actions/checkout@v2
-      - name: npm install
-        run: npm install 
-      - name: npm build for firebase
-        run: npm run build:firebase
+      - uses: actions/checkout@v3
+      - run: 'npm install && npm run build:firebase'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BORTON_TASK_MSIT }}'
-          projectId: borton-task-msit
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TNEL_PMSIT_V0 }}'
+          projectId: tnel-pmsit-v0

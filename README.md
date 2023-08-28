@@ -50,4 +50,4 @@ npm run dev
 
 The default experiment configuration settings can be found in `src/config/config.json`. In order to override them for a
 specific participant, create a new file named `<participant_id>-config.json` in a folder named `msit-settings` in the
-local machine's `Desktop` folder.
+local machine's `Desktop` folder."# TNEL_PMSIT" 
