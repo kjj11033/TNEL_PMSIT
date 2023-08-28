@@ -37,12 +37,6 @@ jobs:
         id: package_info
 
       # install, test, build package
-      # - name: git add
-      #   run: git add *
-      # - name: git commit
-      #   run: git commit -m "A"       
-      - name: electron-rebuild
-        run: npm install electron-rebuild@latest
       - name: npm install -D
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" ${{ secrets.GITHUB_TOKEN }}
