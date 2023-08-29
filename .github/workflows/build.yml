@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        setting: [home, clinic, pdonly]
+        setting: [home, clinic]
         video: [on, off]
         os: [ubuntu-latest, macOS-latest, windows-latest]
         exclude:
@@ -33,22 +33,6 @@ jobs:
           - os: macOS-latest
             setting: home
             video: on
-          - os: ubuntu-latest
-            setting: pdonly
-            video: on
-          - os: macOS-latest
-            setting: pdonly
-            video: on
-          - os: ubuntu-latest
-            setting: pdonly
-            video: off
-          - os: macOS-latest
-            setting: pdonly
-            video: off
-          - os: windows-latest
-            setting: pdonly
-            video: on
-
     steps:
       # Rewrite "git:" repo urls to use "https:" instead, since GitHub Actions blocks port 9418 (as of Jan 2022).
       - name: Rewrite "git:" repo urls to use "https:" instead.
