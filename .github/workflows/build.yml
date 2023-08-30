@@ -33,7 +33,10 @@ jobs:
           - os: macOS-latest
             setting: home
             video: on
+<<<<<<< HEAD
 
+=======
+>>>>>>> d277b28443837d2233561097bc0d5e4ddae62205
     steps:
       # Rewrite "git:" repo urls to use "https:" instead, since GitHub Actions blocks port 9418 (as of Jan 2022).
       - name: Rewrite "git:" repo urls to use "https:" instead.
