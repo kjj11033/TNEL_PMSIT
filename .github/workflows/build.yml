@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        setting: [home, clinic, pdonly]
+        setting: [home, clinic]
         video: [on, off]
         os: [ubuntu-latest, macOS-latest, windows-latest]
         exclude:
@@ -33,21 +33,6 @@ jobs:
           - os: macOS-latest
             setting: home
             video: on
-          - os: ubuntu-latest
-            setting: pdonly
-            video: on
-          - os: macOS-latest
-            setting: pdonly
-            video: on
-          - os: ubuntu-latest
-            setting: pdonly
-            video: off
-          - os: macOS-latest
-            setting: pdonly
-            video: off
-          - os: windows-latest
-            setting: pdonly
-            video: on
 
     steps:
       # Rewrite "git:" repo urls to use "https:" instead, since GitHub Actions blocks port 9418 (as of Jan 2022).
@@ -59,13 +44,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16.13.0
 
       # install, test, build package
-      - name: npm install
+      - name: npm install -D
         run: |
           npm config set "//npm.pkg.github.com/:_authToken" ${{ secrets.GITHUB_TOKEN }}
-          npm install
+          npm install --openssl_fips=""
       - name: Load .env file
         uses: xom9ikk/dotenv@v1.0.2
         with:
@@ -78,7 +63,7 @@ jobs:
           path: ./env
           mode: video
       - name: npm build
-        run: npm run build
+        run: npm run build:firebase
       - name: npm test
         run: npm test
         env:
