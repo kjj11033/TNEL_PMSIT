@@ -30,9 +30,12 @@ function App() {
   const defaultValidation = async () => {
     return true;
   };
-  const firebaseValidation = (participantId, studyId) => {
-    return initParticipant(participantId, studyId, startDate);
-  };
+  // const firebaseValidation = (participantId, studyId) => {
+  //   return initParticipant(participantId, studyId, startDate);
+  // };
+  const firebaseValidation = async () => {
+    return true;
+  };  
 
   // Adding data functions for firebase, electron adn Mturk
   const defaultFunction = () => {};
