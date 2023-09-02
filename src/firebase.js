@@ -41,8 +41,8 @@ const initParticipant = (participantId, studyId, startDate) => {
       return true
     })
     .catch((error) => {
-      // return true
-      return false      
+      return true
+      // return false      
     });
 };
 
