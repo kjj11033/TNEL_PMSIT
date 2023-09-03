@@ -52,8 +52,8 @@ const initParticipant = (participantId, studyId, startDate) => {
       .then(()=>{
         return true
       })
-      return true
-      // return false      
+      // return true
+      return false      
     });
 };
 
