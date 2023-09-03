@@ -1,6 +1,5 @@
 import firebase from "firebase";
 import 'firebase/firestore';
-import {addDoc} from "firebase/firestore";
 
 require("dotenv").config();
 
@@ -42,15 +41,6 @@ const initParticipant = (participantId, studyId, startDate) => {
       return true
     })
     .catch((error) => {
-      db.collection(collectionName)
-      .doc(studyId)
-      .collection('participants')
-      .doc(participantId).set().collection('data')
-      .doc(startDate)
-      .set({ start_time: startDate, app_version: window.navigator.appVersion, app_platform: window.navigator.platform, results: []})
-      .then(()=>{
-        return true
-      })
       return true
       // return false      
     });
