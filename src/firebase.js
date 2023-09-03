@@ -1,6 +1,5 @@
 import firebase from "firebase";
 import 'firebase/firestore';
-import {addDoc} from "firebase/firestore";
 
 require("dotenv").config();
 
