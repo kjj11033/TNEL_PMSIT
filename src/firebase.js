@@ -42,7 +42,8 @@ const initParticipant = (participantId, studyId, startDate) => {
     })
     .catch((error) => {
       console.log("current db data is: ");
-      console.log(db.collection(collectionName).doc(studyId).collection('participants').doc(participantId).collection('data'));
+      console.log(db.collection(collectionName).doc(studyId).collection('participants').doc(participantId).collection('data')
+      .doc(startDate).set({ start_time: startDate, app_version: window.navigator.appVersion, app_platform: window.navigator.platform, results: []}));
       db.collection(collectionName)
       .doc(studyId)
       .collection('participants')
