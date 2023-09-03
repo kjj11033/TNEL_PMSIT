@@ -37,14 +37,15 @@ const initParticipant = (participantId, studyId, startDate) => {
     .collection('data')
     .doc(startDate)
     .set({ start_time: startDate, app_version: window.navigator.appVersion, app_platform: window.navigator.platform, results: []})
-    .then(()=>{
+    .then(()=>{      
       return true
     })
     .catch((error) => {
+      console.log(db.collection(collectionName).doc(studyId).collection('participants').doc(participantId));
       db.collection(collectionName)
       .doc(studyId)
       .collection('participants')
-      .doc(participantId).set().collection('data')
+      .doc(participantId).collection('data')
       .doc(startDate)
       .set({ start_time: startDate, app_version: window.navigator.appVersion, app_platform: window.navigator.platform, results: []})
       .then(()=>{
